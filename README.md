@@ -1,2 +1,4 @@
 # root.css
-A minimal, drop-in, class-less CSS stylesheet to get projects kicked-off
+
+A fairly minimal, drop-in, almost class-less CSS stylesheet to get projects kicked-off
+

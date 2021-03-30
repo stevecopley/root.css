@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Open+Sans:wght@300;600&display=swap');
+/*** SETTINGS *****************************************************/
+
+:root {
+    --text-colour:     #000;
+    --text-low-colour: #666;
+    --accent-colour:   #369;
+    --page-colour:     #fff;
+    --line-colour:     #11111140;
+    --shadow-colour:   #11111120;
+}
+
+/*** SANITY *****************************************************/
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/*** NICENESS *****************************************************/
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*** RESET *****************************************************/
+
+/* Clear gaps between and within blocks */ 
+html, body,
+h1, h2, h3, h4, h5, h6, p,
+ol, ul, li, dl, dt, dd,
+blockquote, figure, fieldset, legend, textarea, pre {
+    margin: 0;
+    padding: 0;
+}
+
+/* Clear default list styling */
+ol, ul {
+  list-style: none;
+}
+
+/* Remove bold from heading */ 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+/* Stop images breaking out of containers */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove default spacing on tables */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td, th {
+    padding: 0;
+}
+
+/* Remove default spacing for form elements */
+button, input, select, textarea {
+    margin: 0;
+}
+
+/*** TEXT *****************************************************/
+
+body {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2.1rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.3rem; }
+h6 { font-size: 1.2rem; }
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 1em 0 0.5em;
+}
+
+h1, h2 { font-weight: 600; }
+
+h2, h3, h4, h5, h6 { color: var(--accent-colour); }
+
+p { 
+    line-height: 1.6;
+    margin: 1em 0; 
+}
+
+strong { font-weight: 600; }
+
+blockquote {
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--accent-colour);
+}
+
+
+/*** GENERAL LAYOUT *****************************************************/
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    max-width: 100ch;
+    margin: auto;
+    padding: 1rem;
+    flex: 1;
+}
+
+header, footer {
+    padding: 1rem 0;
+}
+
+/*** MAIN HEADER *****************************************************/
+
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background: var(--page-colour);
+    border-bottom: 1px solid var(--line-colour);
+    box-shadow: 0 0 0.5rem var(--shadow-colour);
+}
+
+body > header h1 {
+    margin: 0;
+}
+
+/*** MAIN FOOTER *****************************************************/
+
+body > footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem;
+    border-top: 1px solid var(--line-colour);
+}
+
+/*** ARTICLES *****************************************************/
+
+article:not(:first-child) {
+    margin-top: 2rem;
+}
+
+article:not(:first-child) header {
+    border-top: 1px solid var(--line-colour);
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+article header :is(h1, h2, h3, h4, h5, h6) {
+    margin: 0;
+}
+
+/*** MAIN NAV *****************************************************/
+
+body > header nav ul {
+    display: flex;
+    gap: 0.3rem;
+    list-style: none;
+    padding: 0;
+}
+
+body > header nav a {
+    display: block;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.5rem;
+    text-decoration: none;
+    color: var(--text-colour);
+    border-radius: 0.2rem;
+}
+
+body > header nav a:hover {
+    background: var(--accent-colour);
+    color: var(--page-colour);
+}
+
+/*** LINKS *****************************************************/
+
+a {
+    color: var(--accent-colour);
+}
+
+a:hover {
+    
+}
+
+/*** LISTS *****************************************************/
+
+ol, ul, dl {
+    padding-left: 1rem;
+}
+
+ul { list-style: circle; }
+ul ul { list-style: disc; font-size: 0.97em; }
+ul ul ul { list-style: square; }
+ul ul ul ul { list-style: circle; }
+
+ol { list-style: decimal; }
+ol ol { list-style: lower-alpha; font-size: 0.97em; }
+ol ol ol { list-style: lower-roman; }
+ol ol ol ol { list-style: decimal; }
+
+dd { 
+    padding-left: 2rem;
+    margin-bottom: 0.5rem; 
+}
+
+/*** CODE *****************************************************/
+
+code, pre, samp {
+    font-family: 'Fira Code', monospace;
+    font-weight: 400;
+}
+
+p code, code pre, samp, kbd {
+    background: var(--shadow-colour);
+}
+
+code pre {
+    padding: 0.5rem 1rem;
+    border-left: 3px solid var(--accent-colour);
+    width: max-content;
+}
+
+p code, samp {
+    padding: 0.1rem 0.3rem;
+}
+
+kbd {
+    font-family: inherit;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.2rem;
+    border: 1px solid var(--line-colour);
+}
+/*** FORMS *****************************************************/
+
+form {
+    padding: 1rem;
+    border: 1px solid var(--line-colour);
+    /* background: var(--shadow-colour); */
+    border-radius: 0.5rem;
+}
+
+fieldset {
+    padding: 0 1rem 1rem;
+    border: 1px solid var(--line-colour);
+    border-radius: 0.3rem;
+}
+
+fieldset:not(:first-child) {
+    margin-top: 1rem;
+}
+
+input, textarea, select, button {
+    font-size: 1rem;
+    font-family: inherit;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--line-colour);
+    border-radius: 0.3rem;
+}
+
+input[type=submit], 
+input[type=button], 
+input[type=reset], 
+button {
+    color: var(--page-colour);
+    background: var(--accent-colour);
+    border: 1px solid var(--accent-colour);
+}
+
+label {
+    font-size: 0.9em;
+    color: var(--accent-colour);
+}
+
+input + label {
+    margin-left: 1rem;
+}
+
+div label {
+    display: block;
+    margin: 0.6rem 0 0.2rem;
+}
+
+div :is(input, textarea, select, button) {
+    display: block;
+}
+
+:is(div, fieldset) + :is(input[type=submit], 
+                         input[type=button], 
+                         input[type=reset]):last-child {
+    margin-top: 1.5rem;
+}
+
+:is(input) + :is(input[type=submit], 
+                 input[type=button], 
+                 input[type=reset]):last-child {
+    margin-left: 1.5rem;
+}
