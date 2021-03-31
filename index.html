@@ -332,9 +332,9 @@ p q r s t u v w x y z { | } ~ </pre>
                 <h3>References</h3>
 
                 <p>
-                    &lt;abbr&gt; Abbreviations can be included, such as <abbr title="HyperText Markup Language">HTML</abbr><br>
+                    Abbreviations can be included, such as <abbr title="HyperText Markup Language">HTML</abbr><br>
                     <q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation</q><br>
-                    <cite>This is a citation</cite><br>
+                    <cite>This is a citation</cite>
                 </p>
             </section>
 
@@ -423,23 +423,40 @@ p q r s t u v w x y z { | } ~ </pre>
                 <h3>Inline Form</h3>
 
                 <form action="#form">
-                    <label for="input__text">Text Input</label>
+                    <label for="input__text">Text</label>
                     <input id="input__text" type="text" placeholder="Type some text">
 
                     <label for="input__password">Password</label>
                     <input id="input__password" type="password" placeholder="Type your Password">
 
-                    <input id="checkboxOK" name="checkboxOK" type="checkbox">
-                    <label for="checkboxOK">Ok?</label>
+                    <label for="checkboxOK"><input id="checkboxOK" name="checkboxOK" type="checkbox"> Ok?</label>
 
                     <label for="checkboxSR"><input id="checkboxSR" name="checkboxSR" type="checkbox"> Sure?</label>
 
-                    <input type="submit" value="Submit Data">
+                    <input type="submit" value="Submit">
                 </form>
             </section>
 
             <section>
-                <h3>Stacked Form</h3>
+                <h3>Simple Stacked Form</h3>
+
+                <form action="#form">
+                    <div>
+                        <label for="input__text">Text</label>
+                        <input id="input__text" type="text" placeholder="Type some text">
+                    </div>
+
+                    <div>
+                        <label for="input__password">Password</label>
+                        <input id="input__password" type="password" placeholder="Type your Password">
+                    </div>
+
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+
+            <section>
+                <h3>Complex Stacked Form</h3>
 
                 <form action="#form">
                     <fieldset>
@@ -464,6 +481,10 @@ p q r s t u v w x y z { | } ~ </pre>
                         <div>
                             <label for="input__phone">Phone Number</label>
                             <input id="input__phone" type="tel" placeholder="(03) 123 4567">
+                        </div>
+                        <div>
+                            <label for="input__area">Text Area</label>
+                            <textarea id="input__area" rows="5" placeholder="Type your story..."></textarea>
                         </div>
                     </fieldset>
 
@@ -498,70 +519,40 @@ p q r s t u v w x y z { | } ~ </pre>
                             </select>
                         </div>
                         <div>
-                            <label>Checkboxes (Sibling Labels)</label>
-                            <input id="checkboxA1" name="checkbox" type="checkbox" checked="checked">
-                            <label for="checkboxA1">Choice A</label>
-                            <input id="checkboxA2" name="checkbox" type="checkbox">
-                            <label for="checkboxA2">Choice B</label>
-                            <input id="checkboxA3" name="checkbox" type="checkbox">
-                            <label for="checkboxA3">Choice C</label>
-                        </div>
-                        <div>
-                            <label>Checkboxes (Wrapped Labels)</label>
+                            <label>Checkboxes</label>
                             <label for="checkboxB1"><input id="checkboxB1" name="checkbox" type="checkbox" checked="checked"> Choice A</label>
                             <label for="checkboxB2"><input id="checkboxB2" name="checkbox" type="checkbox"> Choice B</label>
                             <label for="checkboxB3"><input id="checkboxB3" name="checkbox" type="checkbox"> Choice C</label>
                         </div>
                         <div>
                             <label>Radio Buttons</label>
+                            <label for="radioB1"><input id="radioB1" name="radioB" type="radio" class="radio" checked="checked"> Option 1</label>
+                            <label for="radioB2"><input id="radioB2" name="radioB" type="radio" class="radio"> Option 2</label>
+                            <label for="radioB3"><input id="radioB3" name="radioB" type="radio" class="radio"> Option 3</label>
                         </div>
                     </fieldset>
 
-                    <input type="submit" value="Submit Data">
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
                 </form>
             </section>
 
-            <legend>Checkboxes</legend>
-            <ul class="list list--bare">
-                <li><label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked"> Choice A</label></li>
-                <li><label for="checkbox2"><input id="checkbox2" name="checkbox" type="checkbox"> Choice B</label></li>
-                <li><label for="checkbox3"><input id="checkbox3" name="checkbox" type="checkbox"> Choice C</label></li>
-            </ul>
-            </fieldset>
-            <p><a href="#top">[Top]</a></p>
-            <fieldset id="forms__radio">
-                <legend>Radio buttons</legend>
-                <ul class="list list--bare">
-                    <li><label for="radio1"><input id="radio1" name="radio" type="radio" class="radio" checked="checked"> Option 1</label></li>
-                    <li><label for="radio2"><input id="radio2" name="radio" type="radio" class="radio"> Option 2</label></li>
-                    <li><label for="radio3"><input id="radio3" name="radio" type="radio" class="radio"> Option 3</label></li>
-                </ul>
-            </fieldset>
-            <p><a href="#top">[Top]</a></p>
-            <fieldset id="forms__textareas">
-                <legend>Textareas</legend>
-                <p>
-                    <label for="textarea">Textarea</label>
-                    <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
-                </p>
-            </fieldset>
-            <fieldset id="forms__action">
-                <legend>Action buttons</legend>
-                <p>
-                    <input type="submit" value="<input type=submit>">
-                    <input type="button" value="<input type=button>">
-                    <input type="reset" value="<input type=reset>">
-                    <input type="submit" value="<input disabled>" disabled="">
-                </p>
-                <p>
-                    <button type="submit">&lt;button type=submit&gt;</button>
-                    <button type="button">&lt;button type=button&gt;</button>
-                    <button type="reset">&lt;button type=reset&gt;</button>
-                    <button type="button" disabled="">&lt;button disabled&gt;</button>
-                </p>
-            </fieldset>
-            <p><a href="#top">[Top]</a></p>
-            </form>
+            <section>
+                <h3>Buttons</h3>
+
+                <div>
+                    <input type="submit" value="Input Submit">
+                    <input type="button" value="Input Button">
+                    <input type="reset" value="Input Reset">
+                    <input type="button" value="Input Disabled" disabled>
+                </div>
+                <div>
+                    <button type="submit">Button Submit</button>
+                    <button type="button">Button Button</button>
+                    <button type="reset">Button Reset</button>
+                    <button type="button" disabled>Button Disabled</button>
+                </div>
+            </section>
         </article>
 
     </main>

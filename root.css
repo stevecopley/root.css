@@ -4,7 +4,7 @@
 :root {
     --text-colour:     #000;
     --text-low-colour: #666;
-    --accent-colour:   #369;
+    --accent-colour:   #1976d2;
     --page-colour:     #fff;
     --line-colour:     #11111140;
     --shadow-colour:   #11111120;
@@ -114,7 +114,7 @@ body {
 main {
     max-width: 100ch;
     margin: auto;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem;
     flex: 1;
 }
 
@@ -147,9 +147,10 @@ body > footer {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    padding: 1rem;
-    border-top: 1px solid var(--line-colour);
+    padding: 2rem 0;
+    /* border-top: 1px solid var(--line-colour); */
 }
+
 
 /*** ARTICLES *****************************************************/
 
@@ -223,6 +224,31 @@ dd {
     margin-bottom: 0.5rem; 
 }
 
+/*** TABLES *****************************************************/
+
+table {
+    margin: 1rem 0;
+}
+
+table caption {
+    padding: 0.5rem 0;
+}
+
+tbody tr:not(:last-child) {
+    border-bottom: 1px solid var(--line-colour);
+}
+
+th {
+    background: var(--accent-colour);
+    color: var(--page-colour);
+}
+
+td, th {
+    padding: 0.4rem 1rem;
+    text-align: left;
+    font-weight: inherit;
+}
+
 /*** CODE *****************************************************/
 
 code, pre, samp {
@@ -252,6 +278,7 @@ kbd {
     border-radius: 0.2rem;
     border: 1px solid var(--line-colour);
 }
+
 /*** FORMS *****************************************************/
 
 form {
@@ -259,10 +286,12 @@ form {
     border: 1px solid var(--line-colour);
     /* background: var(--shadow-colour); */
     border-radius: 0.5rem;
+    width: max-content;
+    margin: 1rem auto;
 }
 
 fieldset {
-    padding: 0 1rem 1rem;
+    padding: 0.7rem 1rem 1rem;
     border: 1px solid var(--line-colour);
     border-radius: 0.3rem;
 }
@@ -271,49 +300,108 @@ fieldset:not(:first-child) {
     margin-top: 1rem;
 }
 
+form div:last-child {
+    margin-bottom: -1rem;
+}
+
+label {
+    color: var(--accent-colour);
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.3rem;
+    vertical-align: text-bottom;
+}
+
+input + label,
+label + label {
+    margin-left: 1rem;
+}
+
+div label {
+    display: flex;
+    margin: 1rem 0 0.2rem;
+    font-size: 0.9rem;
+}
+
+div label + label {
+    margin: 0.3rem 0.2rem;
+    font-size: 1rem;
+}
+
+div label + label:last-child {
+    margin-bottom: 1rem;
+}
+
+div input:is([type=checkbox], [type=radio]) + label {
+    display: inline-block;
+    margin: 0;
+}
+
+:is(form, fieldset) > div:first-of-type > label {
+    margin-top: 0;
+}
+
 input, textarea, select, button {
     font-size: 1rem;
     font-family: inherit;
     padding: 0.2rem 0.5rem;
     border: 1px solid var(--line-colour);
     border-radius: 0.3rem;
+    display: inline-block;
 }
 
-input[type=submit], 
-input[type=button], 
-input[type=reset], 
-button {
+div > input:is([type=text], [type=email], [type=tel], [type=url], [type=password], [type=date]),
+div > textarea, 
+div > select {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+div > input:is([type=submit], [type=button], [type=reset]), 
+div > button {
+    margin-bottom: 1rem;
+}
+
+div input:is([type=text], [type=email], [type=tel], [type=url], [type=password]),
+div textarea {
+    min-width: 24rem;
+}
+
+input:is([type=checkbox], [type=radio]) {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.3rem;
+}
+
+
+input:is([type=submit], [type=button], [type=reset]), button {
     color: var(--page-colour);
     background: var(--accent-colour);
+    padding: 0.4rem 1rem;
     border: 1px solid var(--accent-colour);
+    display: inline-block;
 }
 
-label {
-    font-size: 0.9em;
-    color: var(--accent-colour);
+div + input:is([type=submit], [type=button], [type=reset]), 
+div + button {
+    margin-top: 0.5rem
 }
 
-input + label {
+fieldset + input:is([type=submit], [type=button], [type=reset]), 
+fieldset + button {
+    margin-top: 1.5rem
+}
+
+
+:is(input, button, label) + input:is([type=submit], [type=button], [type=reset]), 
+:is(input, button, label) + button {
     margin-left: 1rem;
 }
 
-div label {
-    display: block;
-    margin: 0.6rem 0 0.2rem;
+input:is([type=submit], [type=button], [type=reset]):disabled,
+button:disabled {
+    background-color: var(--line-colour);
+    border-color: var(--line-colour);
 }
 
-div :is(input, textarea, select, button) {
-    display: block;
-}
 
-:is(div, fieldset) + :is(input[type=submit], 
-                         input[type=button], 
-                         input[type=reset]):last-child {
-    margin-top: 1.5rem;
-}
-
-:is(input) + :is(input[type=submit], 
-                 input[type=button], 
-                 input[type=reset]):last-child {
-    margin-left: 1.5rem;
-}
